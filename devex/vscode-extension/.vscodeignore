@@ -11,5 +11,12 @@ vsc-extension-quickstart.md
 **/*.ts
 *.vsix
 3rdparty/**
-devkit/**
+assets/devkit/*
 scripts/**
+.vscode
+node_modules
+out/
+src/
+tsconfig.json
+webpack.config.js
+

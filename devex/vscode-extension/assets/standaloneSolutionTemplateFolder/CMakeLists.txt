@@ -41,6 +41,11 @@ if (OE_OPTEE)
 endif ()
 
 if (OE_OPTEE)
+  if(NOT DEVKIT_DOWNLOAD_HAPPENED)
+    execute_process(COMMAND "make" WORKING_DIRECTORY ${CMAKE_SOURCE_DIR}/devkit)
+    set(DEVKIT_DOWNLOAD_HAPPENED TRUE CACHE BOOL "Has the devkit download happened?" FORCE)
+  endif()
+
   set(OE_PACKAGE_PREFIX ${CMAKE_SOURCE_DIR}/devkit/sdk/optee)
 
   if (OE_OPTEE_QEMU_ARMV8)

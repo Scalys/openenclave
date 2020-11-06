@@ -31,9 +31,10 @@
 		"Open Enclave"
 	],
 	"activationEvents": [
-		"*"
+		"onCommand:msiot-vscode-openenclave.newSolution",
+		"onCommand:msiot-vscode-openenclave.checkSystemRequirements"
 	],
-	"main": "./out/src/extension.js",
+	"main": "./dist/extension",
 	"contributes": {
 		"commands": [
 			{
@@ -60,7 +61,7 @@
 		}
 	},
 	"scripts": {
-		"vscode:prepublish": "npm run compile",
+		"vscode:prepublish": "webpack --mode production",
 		"compile": "tsc -p ./",
 		"watch": "tsc -watch -p ./",
 		"postinstall": "node ./node_modules/vscode/bin/install",
@@ -72,10 +73,12 @@
 		"@types/mocha": "^2.2.42",
 		"@types/node": "^10.12.21",
 		"azure-arm-resource": "^3.1.1-preview",
-		"ts-loader": "^5.3.3",
+		"ts-loader": "^5.4.5",
 		"tslint": "^5.12.1",
 		"typescript": "^3.3.1",
-		"vscode": "^1.1.28"
+		"vscode": "^1.1.28",
+		"webpack": "^5.4.0",
+		"webpack-cli": "^4.2.0"
 	},
 	"dependencies": {
 		"azure-arm-containerregistry": "^2.2.0",
